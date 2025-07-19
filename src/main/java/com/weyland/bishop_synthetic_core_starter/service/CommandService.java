@@ -25,7 +25,7 @@ public class CommandService {
             commandQueueService.sumbit(command);
         }
         metricsService.incrementAuthorCommandCounter(command.getAuthor());
-        log.info("incement metric for author {}", command.getAuthor());
+        log.info("increment metric for author {}", command.getAuthor());
 
     }
 
