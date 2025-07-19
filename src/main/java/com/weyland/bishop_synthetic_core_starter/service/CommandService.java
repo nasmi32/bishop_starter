@@ -9,9 +9,11 @@ import org.springframework.validation.annotation.Validated;
 @Slf4j
 public class CommandService {
     private final CommandQueueService commandQueueService;
+    private final MetricsService metricsService;
 
-    public CommandService(CommandQueueService commandQueueService) {
+    public CommandService(CommandQueueService commandQueueService, MetricsService metricsService) {
         this.commandQueueService = commandQueueService;
+        this.metricsService = metricsService;
     }
 
     @WeylandWatchingYou
@@ -22,6 +24,9 @@ public class CommandService {
         else {
             commandQueueService.sumbit(command);
         }
+        metricsService.incrementAuthorCommandCounter(command.getAuthor());
+        log.info("incement metric for author {}", command.getAuthor());
+
     }
 
 
