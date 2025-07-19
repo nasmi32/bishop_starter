@@ -1,0 +1,3 @@
+com.weyland.bishop_synthetic_core_starter.config.BishopSyntheticCoreAutoConfiguration
+com.weyland.bishop_synthetic_core_starter.config.KafkaDockerComposeConfig
+com.weyland.bishop_synthetic_core_starter.config.AuditPublisherAutoConfig
