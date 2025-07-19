@@ -45,12 +45,12 @@ public class MetricsService {
                 .increment();
     }
 
-    @Scheduled(fixedRate = 1000)
+    @Scheduled(fixedRate = 500)
     public void updateQueueSize() {
         int queueSize = commandQueueService.getQueueSize();
         Gauge.builder("command.queue.size", queueSize, Number::intValue)
                 .description("Current queue size")
                 .register(meterRegistry);
-        log.info("Updating queue size {}", queueSize);
+//        log.info("Updating queue size {}", queueSize);
     }
 }
